@@ -21,20 +21,20 @@ def deleteEndIndex():
     listDivider.pop()
     listDivision.pop()
     listRemainder.pop()
-
+# this lists -> for loging and control
 listDividing=[]
 listDivider=[]
 listDivision=[]
 listRemainder=[]
-
+#get user input
 Temp=0
 num1 = int(input("sayıyı girin: "))
 num2 = int(input("sayıyı girin: "))
-a = -1
-b = 0
-counterR=0
-counterL=0
-
+a = -1 #loop controller
+b = 0  #loop controller
+counterR=0  # x
+counterL=0  # y
+#change -> <-
 if num1<num2:
     temp = num1
     num1 = num2
@@ -49,7 +49,7 @@ else:
     counterL = 1
     counterR = num1/num2 -1
 deleteEndIndex()
-for ab in listDivider:
+for ab in listDivision:
     print(f"{listRemainder[a]} = {listDividing[a]} - {listDivider[a]}x{listDivision[a]}")
     if b>0:
         temp = counterR
@@ -58,11 +58,11 @@ for ab in listDivider:
     
     a-=1
     b+=1
-
+#coefficients
 print(counterL)
 print(counterR)
 
-
+#coefficient sign detection
 if gcd(num1,num2)==num1*counterL+num2*counterR:
     print(f"ebob({num1},{num2}) = {num1}x{counterL} + {num2} x {counterR} = {gcd(num1,num2)}")
 elif gcd(num1,num2)==num1*-counterL+num2*counterR:
