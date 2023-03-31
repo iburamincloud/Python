@@ -40,7 +40,7 @@ if num1<num2:
     num1 = num2
     num2 = temp
 
-
+#main function
 print("EBOB:", gcd(num1, num2))
 if len(listDivision)>1:
     counterR=listDivision[-2]
