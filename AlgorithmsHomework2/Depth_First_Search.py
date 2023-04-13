@@ -62,12 +62,14 @@ def listNeighbour():
 
 def DFS():
     global max_row
+    global time
     time = 0
     for i in range(max_row):
         if color[i]==0:
-            DFSVisit(i,time)
+            DFSVisit(i)
 
-def DFSVisit(i,time):
+def DFSVisit(i):
+    global time
     color[i] = 1
     time+=1
     print(f"{i}. düğüm ziyaret edildi")
@@ -76,7 +78,8 @@ def DFSVisit(i,time):
     for j in matris[i]:
         if j==1:
             if color[index]==0:
-                DFSVisit(index,time)
+                pred[index] = i
+                DFSVisit(index)
         index+=1
     color[i]=2
     print(f"{i}. düğüm siyaha çevrildi")
@@ -87,3 +90,7 @@ def DFSVisit(i,time):
 readGraph()
 listNeighbour()
 DFS()
+print(f"pred : {pred}")
+print(f"color : {color}")
+print(f"findedIn : {findedIn}")
+print(f"blackedIn : {blackedIn}")
