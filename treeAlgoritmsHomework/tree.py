@@ -4,7 +4,7 @@ class Node:
             self.leftLink = leftLink
             self.rightLink = rightLink
 
-dataList = [40,70,50,30,25,75,65,5,27,12,7,4,13,88]
+dataList = [40, 70, 50, 30, 25, 80, 75, 5]
 root = None
 
 
@@ -28,25 +28,11 @@ def treeInit():
                          break
                     temp = temp.rightLink
 
-def treeInitMirror():
+def rootMirror():
     global root
-    temp = None
-    for data in dataList:
-        if root == None:
-            root = Node(data)
-        else:
-            temp = root
-            while temp != None:
-                if data >= temp.data:
-                    if temp.leftLink == None:
-                         temp.leftLink = Node(data)
-                         break
-                    temp = temp.leftLink
-                elif data < temp.data:
-                    if temp.rightLink == None:
-                         temp.rightLink = Node(data)
-                         break
-                    temp = temp.rightLink
+    temp = root.leftLink
+    root.leftLink = root.rightLink
+    root.rightLink = temp
             
 rankList = []    
 def logRank(rank,parent):
@@ -69,7 +55,6 @@ def printRankList():
     for i in range(len(rankList)-1):
         print(f"lvl {i+1} -> {rankList[i]}")
     rankList = []
-    root = None
     
           
         
@@ -79,7 +64,7 @@ treeInit()
 print("Mertebeler:") 
 printRankList()
 print("Simetriği alındıktan sonraki mertebeler:")
-treeInitMirror()
+rootMirror()
 printRankList()
 
             
